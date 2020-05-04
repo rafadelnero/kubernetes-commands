@@ -1,0 +1,10 @@
+minikube start --kubernetes-version='1.17.4'
+
+## Checking minikube ip
+minikube ip
+
+## Stopping minikube when not necessary
+minikube stop
+
+## Checking minikube status
+minikube status
