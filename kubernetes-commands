@@ -1,0 +1,106 @@
+## Verifying version
+kubectl version
+
+command line or YAML
+
+## Runs an image
+kubectl run my-nginx --image nginx
+
+## Get pods
+kubectl get pods
+
+## Get all - pod deployment replica set
+kubectl get all
+
+## Delete a pod, deployment and replica set
+kubectl delete deployment my-nginx
+
+## Creates components in different kubernetes versions
+kubectl run nginx --image nginx
+created a Deployment named nginx before 1.18 (which creates a ReplicaSet, which creates a Pod)
+
+kubectl run nginx --image nginx creates a Pod named nginx in 1.18+
+
+Creating a Deployment in 1.18: kubectl create deployment nginx --image nginx
+
+## Running httpd
+kubectl run my-apache --image httpd
+
+## Scales a service
+kubectl scale deploy/my-apache --replicas 2
+
+## Checks pods
+kubectl get pods
+
+## Checks logs from a service
+kubectl logs deployment/my-apache
+
+## Gets only the last line of logs
+kubectl logs deployment/my-apache --follow --tail 1
+
+## Check logs from the my-apache service
+kubectl logs -l run=my-apache
+
+## Describe a pod
+kubectl describe pod/my-apache-5d589d69c7-jfwxq
+
+## Logs the pod information
+kubectl get pods -w
+
+## Deletes a pod
+kubectl delete pod/my-apache-5d589d69c7-jfwxq
+
+## Clean up pods/services
+kubectl delete deployment my-apache
+
+## Creates a deployment
+kubectl create deployment httpenv --image=bretfisher/httpenv
+
+## Scaling service with 5 replicas
+kubectl scale deployment/httpenv --replicas=5
+
+## Exposes one service
+kubectl expose deployment/httpenv --port 8888
+
+## Runs a pod with detailed instructions
+kubectl run --generator run-pod/v1 tmp-shell --rm -it --image bretfisher/netshoot -- bash
+
+## Exposing a node port
+kubectl expose deployment/httpenv --port 8888 --name httpenv-np --type NodePort
+
+## Exposing a load balancer
+kubectl expose deployment/httpenv --port 8888 --name httpenv-lb --type LoadBalancer
+
+## Create a deployment and then shows the yaml default configuration
+kubectl create deployment test --image nginx --dry-run -o yaml
+
+## Create a job and shows the yaml default configuration
+kubectl create job test --image nginx --dry-run -o yaml
+
+## Create a deployment
+kubectl create deployment test --image nginx
+
+## Exposes a deployment test and show the default configuration
+kubectl expose deployment/test --port 80 --dry-run -o yaml
+
+## Delete a deployment
+kubectl delete deployment test
+
+## Apply command to create a pod
+kubectl apply -f https://bret.run/pod.yml
+
+## Check resources from kubernetes
+kubectl api-resources
+
+## Check versions from apis
+kubectl api-versions
+
+## Shows services
+kubectl explain services --recursive
+
+kubectl explain services.spec
+
+kubectl explain services.spec.type
+
+kubectl explain deployment.spec.template.spec.volumes.nfs.server
+

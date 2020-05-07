@@ -1,0 +1,43 @@
+## Pods
+They are where we deploy services
+
+## Controller
+replicaSet, schedulers, cronJob
+
+## Service
+It is an endpoint, persistent endpoint in the cluster with and specific DNS name.
+
+## Namespace
+Filter at a view.
+
+## 3 main kubernetes commands
+kubectl run == similar to docker run
+kubectl create == similar to docker create to swarm
+kubectl apply == similar to docker stack create
+
+## Orchestrator
+Heals the pods with new services
+
+## KoreDNS by default - service discovery
+
+Full qualified name for a DNS
+curl <hostname>.<namespace>.svc.cluster.local
+
+## Generators
+They are the default configurations from kubernetes
+
+## Imperative VS declarative
+Imperative = how a program should operate
+Declarative = what a program should do
+
+## Examples of imperative
+kubectl run, kubectl create deployment, kubectl update
+
+## Examples of declarative
+kubectl apply -f my-resource.yaml
+More work than kubectl run
+GitOps
+
+## shouldn't mix kubernetes command styles
+
+## Learn the apply command
